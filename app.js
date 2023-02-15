@@ -1,14 +1,17 @@
 const express = require("express");
-// const userRouter = require("./routes/userRoutes");
+const photoRoutes = require("./routes/photoRoutes");
 const dotenv = require("dotenv").config();
 
 const app = express();
 app.use(express.json());
 const port = process.env.port || 3000;
 
-app.use("/", (req, res) => {
-  res.json({ message: "Welcome to the Unsplash API!" });
+app.get("/", (req, res) => {
+  res.status(200).json({ message: "Welcome to the Unsplash API!" });
 });
+
+//userRouter
+app.use("/api/photos", photoRoutes);
 
 //listen for requests
 app.listen(port, () => console.log(`Server is running on port ${port}`));
