@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 });
 
 //userRouter
-app.use("/api/photos", photoRoutes);
+app.use("/api", photoRoutes);
 
 //listen for requests
 app.listen(port, () => console.log(`Server is running on port ${port}`));

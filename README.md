@@ -125,6 +125,7 @@ Create a `GET`route in the `photoRoutes.js` file that:
 ### Part IV - Set up MongoDB and connect to your application
 
 - [ ] Set up a `MongoDB` database
+  - [ ] Make sure that the `email` is unique
 - [ ] Connect it to your application.
 - [ ] Add the `MONGO_URI` to your `.env` file
 
@@ -138,7 +139,6 @@ Create a `GET`route in the `photoRoutes.js` file that:
   - [ ] `password` - a string
   - [ ] `email` - a string
   - [ ] Set all properties to required
-  - [ ] Make sure that the `email` is unique
   - [ ] Include a timestamp
 
 - [ ] Create a `register` route where users can sign up for your application

@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const photoController = require("../controllers/photoController");
 
-router.get("/", photoController.getPhotos);
-router.get("/:id", photoController.getPhotoById);
-
+router.get("/photos", photoController.getPhotos);
+router.get("/photos/:id", photoController.getPhotoById);
+router.get("/user/:username", photoController.getPhotosByUsername);
 module.exports = router;
