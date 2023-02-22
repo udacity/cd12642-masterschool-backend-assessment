@@ -63,17 +63,17 @@ Before you start, set up your **Developer** account on **Unsplash** and create a
 - [v] Run `npm run server` to start the server w/ `nodemon`.
 - [v] Create a `.gitignore` file and add `node_modules` and `.env` to it.
 - [v] Create a `.env` file and add `PORT=3000` to it.
-- [ ] Set up the `app.js` file:
-  - [ ] Require the `express` module
-  - [ ] Set up the `app` object
-  - [ ] Set the `port` to `3000`
-  - [ ] Set up the `app` object to use `express.json()` middleware to parse JSON bodies
-  - [ ] Add a `GET` route to `/` that returns a `200` status and a JSON object with a `message` key assigned to a string that reads, `"Welcome to the Unsplash API!"`
-  - [ ] Set up the server to listen on port `3000`.
-  - [ ] Run your server with `npm run server`
-  - [ ] Check that your server is running:
-    - [ ] You should see your `"Listening on port 3000"` log in the terminal.
-    - [ ] When you visit `http://localhost:3000/` in your browser, you should see a JSON object, `{message: "Welcome to the Unsplash API!"}`.
+- [v] Set up the `app.js` file:
+  - [v] Require the `express` module
+  - [v] Set up the `app` object
+  - [v] Set the `port` to `3000`
+  - [v] Set up the `app` object to use `express.json()` middleware to parse JSON bodies
+  - [v] Add a `GET` route to `/` that returns a `200` status and a JSON object with a `message` key assigned to a string that reads, `"Welcome to the Unsplash API!"`
+  - [v] Set up the server to listen on port `3000`.
+  - [v] Run your server with `npm run server`
+  - [v] Check that your server is running:
+    - [v] You should see your `"Listening on port 3000"` log in the terminal.
+    - [v] When you visit `http://localhost:3000/` in your browser, you should see a JSON object, `{message: "Welcome to the Unsplash API!"}`.
 
 **Commit to Github**
 
