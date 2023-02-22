@@ -58,11 +58,11 @@ Before you start, set up your **Developer** account on **Unsplash** and create a
 
 **Set up your project by following the instructions below.**
 
-- [ ] Fork and clone this repository.
-- [ ] Run `npm install` to install dependencies.
-- [ ] Run `npm run server` to start the server w/ `nodemon`.
-- [ ] Create a `.gitignore` file and add `node_modules` and `.env` to it.
-- [ ] Create a `.env` file and add `PORT=3000` to it.
+- [v] Fork and clone this repository.
+- [v] Run `npm install` to install dependencies.
+- [v] Run `npm run server` to start the server w/ `nodemon`.
+- [v] Create a `.gitignore` file and add `node_modules` and `.env` to it.
+- [v] Create a `.env` file and add `PORT=3000` to it.
 - [ ] Set up the `app.js` file:
   - [ ] Require the `express` module
   - [ ] Set up the `app` object
