@@ -77,13 +77,13 @@ Before you start, set up your **Developer** account on **Unsplash** and create a
 
 **Commit to Github**
 
-- [ ] Commit your work to Github and push to your forked repository w/ a commit message that reads, `"Part I - Setup"`.
+- [v] Commit your work to Github and push to your forked repository w/ a commit message that reads, `"Part I - Setup"`.
 
 ### Part II - API GET Routes: Return Unsplash Photos
 
 **Create the following `GET` routes in the `photoRoutes.js` file:**
 
-- [ ] Use `/api/photos` as the base path for all photo routes
+- [v] Use `/api/photos` as the base path for all photo routes
 
 **`/api/photos` Route**
 
