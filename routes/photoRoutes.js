@@ -1,7 +1,7 @@
 //import dependencies
 const express = require("express");
 const router = express.Router();
-const photoController = require("../controllers/photoController.js");
+const photoController = require("../controllers/photoController");
 
 router.get("/photos", photoController.getPhotos);
 router.get("/photos/:id", photoController.getPhotoById);
