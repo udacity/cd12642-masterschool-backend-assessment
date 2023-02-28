@@ -3,9 +3,11 @@ const dotenv = require('dotenv').config();
 const port = process.env.PORT || 3000;
 const app = express();
 
-app.get('/', (req, res) => {
-    res.status(200).json({message: 'Welcome to the Unsplash API!'});
-})
+
+//part I code
+// app.get('/', (req, res) => {
+//     res.status(200).json({message: 'Welcome to the Unsplash API!'});
+// })
 
 app.use('/api/photos', require('./routes/photoRoutes.js'));
 
