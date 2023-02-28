@@ -8,8 +8,8 @@ const photoController = require('../controllers/photoController');
 //})
 
 
- router.get('/', photoController.getPhotos);
-// router.get('/:id', photoController.getPhotoById);
+router.get('/', photoController.getPhotos);
+router.get('/:id', photoController.getPhotoById);
 // router.get('/user/:username', photoController.getPhotosByUsername);
 
 module.exports = router
