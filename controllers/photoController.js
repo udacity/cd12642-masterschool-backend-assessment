@@ -3,9 +3,6 @@ const axios = require('axios');
 const dotenv = require('dotenv').config();
 
 const accessKey = process.env.UNSPLASH_ACCESS_KEY;
-// const secretKey = process.env.UNSPLASH_SECRET_KEY
-// const callbackUrl = process.env.UNSPLASH_CALLBACK_URL;
-// const authorizationCode = process.env.UNSPLASH_AUTHORIZATION_CODE
 const apiUrl = 'https://api.unsplash.com/';
 
 exports.getPhotos = async (req, res, next) => {
@@ -34,22 +31,24 @@ exports.getPhotoById = async (req, res, next) => {
   }
  };
 
-// exports.getPhotosByUsername = async (req, res, next) => {
-//   const { username } = req.params;
-//   try {
-//     const response = await axios.get(`${apiUrl}/users/${username}/photos?client_id=${accessKey}`);
-//     const userDetails = response.data.map((user) => ({
-//       id: user.id,
-//       username: user.user.username,
-//       description: user.description || "No description provided.",
-//       url: user.urls.raw,
-//     }));
-//     res.status(200).json({ userDetails });
-//   } catch (error) {
-//     console.log(error);
-//     next(error);
-//   }
-// };
+exports.getPhotosByUsername = async (req, res, next) => {
+  const { username } = req.params;
+  try {
+    const response = await axios.get(`${apiUrl}/users/${username}/photos?client_id=${accessKey}`);
+    
+    //console log evreything user object
+    const userDetails = response.data.map((user) => ({
+      id: user.id,
+      username: user.user.username,
+      description: user.description || "No description provided.",
+      url: user.urls.raw,
+    }));
+    res.status(200).json({ userDetails });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
 
 
 
