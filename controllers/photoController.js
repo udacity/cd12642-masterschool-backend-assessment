@@ -36,7 +36,6 @@ exports.getPhotosByUsername = async (req, res, next) => {
   try {
     const response = await axios.get(`${apiUrl}/users/${username}/photos?client_id=${accessKey}`);
     
-    //console log evreything user object
     const userDetails = response.data.map((user) => ({
       id: user.id,
       username: user.user.username,
@@ -44,6 +43,7 @@ exports.getPhotosByUsername = async (req, res, next) => {
       url: user.urls.raw,
     }));
     res.status(200).json({ userDetails });
+    console.log(userDetails);
   } catch (error) {
     console.log(error);
     next(error);
