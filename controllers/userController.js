@@ -79,8 +79,14 @@ const generateToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {expiresIn: '30d'})
 } 
 
+const logoutUser = asyncHandler(async (req, res) => {
+  res.clearCookie('token')
+  res.status(200).json({ message: 'Logged out successfully' })
+})
+
 module.exports = {
     registerUser,
     loginUser,
-    getMe
+    getMe,
+    logoutUser,
 }
