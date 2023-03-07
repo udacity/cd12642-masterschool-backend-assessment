@@ -2,6 +2,10 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const connectDB = require('./config/db');
 
+const errorHandler = require('./middleware/errorMiddleware');
+
+// ...other middleware...
+
 connectDB();
 
 const port = process.env.PORT || 3000;
@@ -20,5 +24,7 @@ app.use('/api/photos', require('./routes/photoRoutes.js'));
 app.use('/api/users', require('./routes/userRoutes.js'));
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
+
+app.use(errorHandler);
 
 
