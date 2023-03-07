@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const favoritePhotoSchema = mongoose.Schema({
     user: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
     url: {

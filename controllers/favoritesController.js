@@ -2,7 +2,7 @@
 const asyncHandler = require("express-async-handler");
 const dotenv = require('dotenv').config();
 
-const FavoritePhoto = require('../models/favoritePhoto');
+const FavoritePhoto = require('../models/favoritePhotoModel');
 const errorHandler = require('../middleware/errorMiddleware');
 
 // Create a new favorite photo
