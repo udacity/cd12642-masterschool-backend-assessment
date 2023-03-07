@@ -89,19 +89,19 @@ Before you start, set up your **Developer** account on **Unsplash** and create a
 
 Create a `GET`route in the `photoRoutes.js` file that:
 
-- [ ] Returns an array of **raw** **Unsplash** photo URLs.
-- [ ] If the `catch` block is triggered, returns a `500` status and a JSON object with a `message` key assigned to a string that reads, `"Server error. Please try again later."`
+- [v] Returns an array of **raw** **Unsplash** photo URLs.
+- [v] If the `catch` block is triggered, returns a `500` status and a JSON object with a `message` key assigned to a string that reads, `"Server error. Please try again later."`
 
 **`/api/photos/:id` Route**
 
 Create a `GET`route in the `photoRoutes.js` file that:
 
-- [ ] Returns a single photo object from the Unsplash API based on a photo's `id`
-- [ ] If the `catch` block is triggered, returns a `500` status and a JSON object with a `message` key assigned to a string that reads, `"Server error. Please try again later."`
+- [v] Returns a single photo object from the Unsplash API based on a photo's `id`
+- [v] If the `catch` block is triggered, returns a `500` status and a JSON object with a `message` key assigned to a string that reads, `"Server error. Please try again later."`
 
 **Commit to Github**
 
-- [ ] Commit your work to Github and push to your forked repository w/ a commit message that reads, `"Part II - API GET Routes: Return Unsplash Photos"`.
+- [v] Commit your work to Github and push to your forked repository w/ a commit message that reads, `"Part II - API GET Routes: Return Unsplash Photos"`.
 
 ### Part III - Advanced Route: Return Combined Data
 
@@ -109,86 +109,86 @@ Create a `GET`route in the `photoRoutes.js` file that:
 
 Create a `GET`route in the `photoRoutes.js` file that:
 
-- [ ] Returns an array of a user's **Unsplash** photos based on a `username` parameter.
-  - [ ] The array of photos should be an array of objects with the following keys:
-    - [ ] `id` - photo's id
-    - [ ] `username` - the `username` of the `user` who added the photo
-    - [ ] `description` - photo's description
-    - [ ] `url` - photo's raw URL
-    - [ ] if the `description` is `null`, the `description` key should be assigned to a string that reads, `"No description provided."`
-- [ ] If the `catch` block is triggered, it returns the error `status` and a JSON object with a `message` key assigned to the error message contained in the `axios` error response data. Use [Axios Response Schema documentation](https://axios-http.com/docs/res_schema) as needed.
+- [v] Returns an array of a user's **Unsplash** photos based on a `username` parameter.
+  - [v] The array of photos should be an array of objects with the following keys:
+    - [v] `id` - photo's id
+    - [v] `username` - the `username` of the `user` who added the photo
+    - [v] `description` - photo's description
+    - [v] `url` - photo's raw URL
+    - [v] if the `description` is `null`, the `description` key should be assigned to a string that reads, `"No description provided."`
+- [v] If the `catch` block is triggered, it returns the error `status` and a JSON object with a `message` key assigned to the error message contained in the `axios` error response data. Use [Axios Response Schema documentation](https://axios-http.com/docs/res_schema) as needed.
 
 **Commit to Github**
 
-- [ ] Commit your work to Github and push to your forked repository w/ a commit message that reads, `"Part III - Advanced Routes: Return Combined Data"`.
+- [v] Commit your work to Github and push to your forked repository w/ a commit message that reads, `"Part III - Advanced Routes: Return Combined Data"`.
 
 ### Part IV - Set up MongoDB and connect to your application
 
-- [ ] Set up a `MongoDB` database
-- [ ] Connect it to your application.
-- [ ] Add the `MONGO_URI` to your `.env` file
+- [v] Set up a `MongoDB` database
+- [v] Connect it to your application.
+- [v] Add the `MONGO_URI` to your `.env` file
 
 ### Part V - Authentication
 
 **Create Authentication using `JWT`:**
 
-- [ ] Create a `User` model that has the following properties:
+- [v] Create a `User` model that has the following properties:
 
-  - [ ] `username` - a string
-  - [ ] `password` - a string
-  - [ ] `email` - a string
-  - [ ] Set all properties to required
-  - [ ] Make sure that the `email` is unique
-  - [ ] Include a timestamp
+  - [v] `username` - a string
+  - [v] `password` - a string
+  - [v] `email` - a string
+  - [v] Set all properties to required
+  - [v] Make sure that the `email` is unique
+  - [v] Include a timestamp
 
-- [ ] Create a `register` route where users can sign up for your application
-  - [ ] All passwords should be hashed using `bcryptjs` and **10 salt rounds**
-  - [ ] Make sure that the user's `email` is unique
-  - [ ] If the user's `email` is not unique, return a `400` status and a JSON object with a `message` key assigned to a string that reads, `"Email already exists."`
-- [ ] Create a `login` route where users can sign in
-  - [ ] `login` route should compare the hashed password to the password in the user request and returns a `JWT token`
-- [ ] Create a `logout` route that invalidates the `JWT token`
-- [ ] Create the `JWT token` using `jsonwebtoken`
-- [ ] Create a middleware that checks for the `JWT token` and verifies it
-- [ ] Create a private `/me` route that returns the user's information based on the `JWT token`
-- [ ] Store the `JWT_SECRET` in your `.env` file
+- [v] Create a `register` route where users can sign up for your application
+  - [v] All passwords should be hashed using `bcryptjs` and **10 salt rounds**
+  - [v] Make sure that the user's `email` is unique
+  - [v] If the user's `email` is not unique, return a `400` status and a JSON object with a `message` key assigned to a string that reads, `"Email already exists."`
+- [v] Create a `login` route where users can sign in
+  - [v] `login` route should compare the hashed password to the password in the user request and returns a `JWT token`
+- [v] Create a `logout` route that invalidates the `JWT token`
+- [v] Create the `JWT token` using `jsonwebtoken`
+- [v] Create a middleware that checks for the `JWT token` and verifies it
+- [v] Create a private `/me` route that returns the user's information based on the `JWT token`
+- [v] Store the `JWT_SECRET` in your `.env` file
 
 **Commit to Github**
 
-- [ ] Commit your work to Github and push to your forked repository w/ a commit message that reads, `"Part VI - Authentication"`.
+- [v] Commit your work to Github and push to your forked repository w/ a commit message that reads, `"Part VI - Authentication"`.
 
 ### Part VI - Collection of Favorite Photos
 
 **Note:** All functionality in this section should only be accessed by authenticated users.
 
-- [ ] Implement `asyncHandler` to avoid `try/catch` blocks and to trigger error handling middleware (error middleware to be completed in **Part VII**)
-- [ ] Create a new collection in your database called `favoritePhotos`
-- [ ] Create a `model` for your `favoritePhotos` collection with a schema that includes the following:
-  - [ ] `user` - the authenticated `unsplash-backend-assessment` user's `id`
-  - [ ] `url` - the photo's raw url
-  - [ ] `description` - the photo's description
-  - [ ] `username` - the **Unsplash** user's `username` associated with the photo url
-- [ ] Create a route that allows a user to add a photo's `url`, `description`, and **Unsplash** user's `username` as well as an `explanation` of why they added the photo to their `favoritePhotos` collection
-- [ ] Create a route that allows a user to `get` all of their `favoritePhotos`
-- [ ] Create a route that allows a user to `remove` a photo from their `favoritePhotos`
-- [ ] Create a route that allows a user to `edit` their `description` of why they added the photo to their list of `favorites`
+- [v] Implement `asyncHandler` to avoid `try/catch` blocks and to trigger error handling middleware (error middleware to be completed in **Part VII**)
+- [v] Create a new collection in your database called `favoritePhotos`
+- [v] Create a `model` for your `favoritePhotos` collection with a schema that includes the following:
+  - [v] `user` - the authenticated `unsplash-backend-assessment` user's `id`
+  - [v] `url` - the photo's raw url
+  - [v] `description` - the photo's description
+  - [v] `username` - the **Unsplash** user's `username` associated with the photo url
+- [v] Create a route that allows a user to add a photo's `url`, `description`, and **Unsplash** user's `username` as well as an `explanation` of why they added the photo to their `favoritePhotos` collection
+- [v] Create a route that allows a user to `get` all of their `favoritePhotos`
+- [v] Create a route that allows a user to `remove` a photo from their `favoritePhotos`
+- [v] Create a route that allows a user to `edit` their `description` of why they added the photo to their list of `favorites`
 
 **Commit to Github**
 
-- [ ] Commit your work to Github and push to your repository w/ a commit message that reads, `"Part VII - Favorites Collection"`
+- [v] Commit your work to Github and push to your repository w/ a commit message that reads, `"Part VII - Favorites Collection"`
 
 ### Part VII - Error Handling Middleware
 
 **Create an `errorHandler` function in the `errorMiddleware.js` file that:**
 
-- [ ] Responds with a `statusCode` and error `message`
-- [ ] Returns the `stack` trace only if the environment is in `development`
-- [ ] Implement the `errorHandler` function in your `app.js` file
-- [ ] Check that the `errorHandler` is working with all of the `favorites` routes created in **Part VI**. No need to implement for `photos` routes.
+- [v] Responds with a `statusCode` and error `message`
+- [v] Returns the `stack` trace only if the environment is in `development`
+- [v] Implement the `errorHandler` function in your `app.js` file
+- [v] Check that the `errorHandler` is working with all of the `favorites` routes created in **Part VI**. No need to implement for `photos` routes.
 
 **Commit to Github**
 
-- [ ] Commit your work to Github and push to your repository w/ a commit message that reads, `"Part VII - Error Handling Middleware"`
+- [v] Commit your work to Github and push to your repository w/ a commit message that reads, `"Part VII - Error Handling Middleware"`
 
 ### Pass in your assessment
 
