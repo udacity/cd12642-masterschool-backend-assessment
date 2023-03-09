@@ -7,12 +7,11 @@ const errorHandler = require('../middleware/errorMiddleware');
 
 // Create a new favorite photo
 const createFavoritePhoto = asyncHandler(async (req, res) => {
-  const { user, photoUrl, photoUser, description, explanation } = req.body;
-
+  const { url, description, explanation } = req.body;
+  console.log(req.user)
   const favoritePhoto = await FavoritePhoto.create({
-    user,
-    photoUrl,
-    photoUser,
+    user: req.user.id,
+    url,
     description,
     explanation
   });
@@ -33,7 +32,8 @@ const getAllFavoritePhotos = asyncHandler(async (req, res) => {
 const updateFavoritePhoto = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const { explanation } = req.body;
-
+  console.log(id)
+  console.log(explanation)
   const favoritePhoto = await FavoritePhoto.findByIdAndUpdate(
     id,
     { explanation },
