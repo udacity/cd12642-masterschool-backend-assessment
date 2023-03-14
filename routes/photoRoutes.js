@@ -39,4 +39,31 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+
+// /api/photos/user/:username
+
+router.get('/user/:username', async (req,res) =>{
+  const user=req.params.username
+  try{
+    const unsplashResponse= await axios.get(`https://api.unsplash.com/users/${user}/photos`,{
+      headers:{
+        Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`
+      }
+    });
+    const userPhotos = unsplashResponse.data.map(photo => ({
+      id: photo.id,
+      username: photo.user.username,
+      description: photo.description || "No description provided.",
+      url: photo.urls.raw
+    }));
+    res.json(userPhotos)
+  } catch (error) {
+    console.error(error);
+    res.status(error.response.status).json({message:error.response.data})
+  }
+
+});
+
+
+
 module.exports = router;
