@@ -72,19 +72,10 @@ const loginUser= asyncHandler(async(req, res) =>{
   
 
 // Logout user
-// POST request to /api/user/logout
-// const logOut = asyncHandler(async (req, res) => {
-//   try {
-//     res.status(200).clearCookie('jwt').redirect('/');
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: 'Server error' });
-//   }
-// });
 
 const logOut = asyncHandler(async (req, res) => {
     try {
-      res.status(200).clearCookie('jwt', { expires: new Date(0) }).json({ message: 'Logout successful' });
+      res.status(200).json({ token: null });
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: 'Server error' });
