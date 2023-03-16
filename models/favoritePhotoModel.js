@@ -3,21 +3,29 @@ const mongoose=require('mongoose');
 const favoritePhotoModel= new mongoose.Schema({
     user:{
         type:String,
-        required:[true,'Please add a username.']
+        required:[true,'Please add a user id.']
     },
     url:{
         type:String,
         required:true,
-        unique:[true,'Please add an email.']
+        unique:[true,'Please add photo url.']
     },
-    password:{
+    description:{
         type:String,
-        required:[true, 'Please add a password']
+        required:[true, 'Please add a description']
+    },
+    username:{
+        type:String,
+        required:[true, 'Please add username of photo creator']
+    },
+    explanation:{
+        type:String,
+        required:false
     }
 },
 {
     timestamps:true
-}, { collection: 'users' })
+}, { collection: 'favoritePhotos' })
 
 
 const User=mongoose.model('FavoritePhoto', favoritePhotoModel);
