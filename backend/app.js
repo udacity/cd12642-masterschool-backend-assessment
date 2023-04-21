@@ -1,34 +1,34 @@
+const path = require('path');
 const express = require('express');
-const app = express();
+const colors = require('colors');
+const dotenv = require('dotenv').config();
+const { errorHandler } = require('./middleware/errorMiddleware');
+const connectDB = require('./config/db');
 const port = process.env.PORT || 5000;
-const dotenv=require('dotenv').config();
-const bodyParser = require('body-parser');
-const connectDB= require('./config/db')
-const {errorHandler}= require('./middleware/errorMiddleware')
 
 connectDB();
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-const photoRoutes = require('./routes/photoRoutes');
-const userRoutes= require('./routes/userRoutes');
-const favoritesRoutes=require('./routes/favoritesRoutes')
+const app = express();
 
 app.use(express.json());
-app.use('/api/photos', photoRoutes);
-app.use('/api/user', userRoutes);
-app.use('/api/favorites', favoritesRoutes)
+app.use(express.urlencoded({ extended: false }));
 
+app.use('/api/goals', require('./routes/goalRoutes'));
+app.use('/api/users', require('./routes/userRoutes'));
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// Serve frontend
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+  app.get('*', (req, res) =>
+    res.sendFile(
+      path.resolve(__dirname, '../', 'frontend', 'build', 'index.html')
+    )
+  );
+} else {
+  app.get('/', (req, res) => res.send('Please set to production'));
+}
 
 app.use(errorHandler);
 
-app.get('/', (req, res) => {
-  res.status(200).json({ message: 'Welcome to the Unsplash API!' });
-});
-
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
-});
+app.listen(port, () => console.log(`Server started on port ${port}`));

@@ -1,11 +1,14 @@
-const express = require('express');
-const axios = require('axios');
-const router = express.Router();
-const {registerNewUser, loginUser, getMe, logOut }=require('../controllers/userController')
-const {protect}=require('../middleware/authMiddleware')
+const express = require('express')
+const router = express.Router()
+const {
+  registerUser,
+  loginUser,
+  getMe,
+} = require('../controllers/userController')
+const { protect } = require('../middleware/authMiddleware')
 
-router.post('/', registerNewUser);
-router.post('/login', loginUser);
-router.post('/logout', logOut)
-router.get('/me', protect, getMe);
-module.exports=router
+router.post('/', registerUser)
+router.post('/login', loginUser)
+router.get('/me', protect, getMe)
+
+module.exports = router
