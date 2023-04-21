@@ -6,12 +6,12 @@ const User=require('../models/userModel')
 
 
 // Create user
-// POST request to /api/users/
+// POST request to /api/user/
 
 const registerNewUser=asyncHandler(
     async(req,res)=>{
-        const {username, email, password}=req.body
-        if(!username || !email || !password){
+        const {name, email, password}=req.body
+        if(!name || !email || !password){
             res.status(400)
             throw new Error('Please fill out all fields.')
         }
@@ -27,7 +27,7 @@ const registerNewUser=asyncHandler(
         const hashedPassword= await bcrypt.hash(password, salt)
 
         const createUser= await User.create({
-            username,
+            name,
             email,
             password:hashedPassword,
         })
@@ -35,7 +35,7 @@ const registerNewUser=asyncHandler(
         if(createUser){
             res.status(201).json({
                 _id:createUser.id,
-                username:createUser.username,
+                name:createUser.name,
                 email:createUser.email,
                 token:generateToken(createUser._id)
             })
@@ -60,7 +60,7 @@ const loginUser= asyncHandler(async(req, res) =>{
     if (user && (await bcrypt.compare(password, user.password))){
         res.json({
             _id: user.id,
-            username:user.username,
+            name:user.name,
             email:user.email,
             token: generateToken(user._id)
         })
@@ -88,9 +88,9 @@ const logOut = asyncHandler(async (req, res) => {
 // GET request to /api/user/me
 
 const getMe= asyncHandler(async(req, res) =>{
-    const {_id, username, email} = await User.findById(req.user.id)
+    const {_id, name, email} = await User.findById(req.user.id)
 
-    res.status(200).json({id:_id, username, email})
+    res.status(200).json({id:_id, name, email})
 })
 
 

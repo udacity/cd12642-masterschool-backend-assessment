@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { FaUser } from 'react-icons/fa'
 import {useSelector, useDispatch} from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import {Link, useNavigate } from 'react-router-dom'
 import {toast} from 'react-toastify'
 import {register,reset} from '../features/auth/authSlice'
 import Spinner from '../components/Spinner'
@@ -10,7 +10,7 @@ import Spinner from '../components/Spinner'
 function Register() {
     
     const [formData,setFormData]=useState({
-        username:'',
+        name:'',
         email:'',
         password:'',
         password2:''
@@ -22,7 +22,7 @@ function Register() {
     const navigate=useNavigate()
     const dispatch=useDispatch()
 
-    const {username, isLoading, isError, isSuccess, message}= useSelector(
+    const {user, isLoading, isError, isSuccess, message}= useSelector(
         (state)=>state.auth
     )
     
@@ -30,12 +30,12 @@ function Register() {
         if(isError){
             toast.error(message)
         }
-        if(isSuccess || username) {
+        if(isSuccess || user) {
             navigate('/')
         }
 
         dispatch(reset())
-    },[username, isError, isSuccess, message,navigate, dispatch])
+    },[user, isError, isSuccess, message,navigate, dispatch])
 
 
     const onChange= (e) => {
@@ -76,9 +76,9 @@ function Register() {
             <div className="form-group">
             <input  type="text"
                     className="form-control"
-                    id='username' 
-                    name='username' 
-                    value={username}
+                    id='name' 
+                    name='name' 
+                    value={name}
                     placeholder='Enter your name'
                     onChange={onChange}/>
             </div>
@@ -113,6 +113,7 @@ function Register() {
                 <button type="submit" className='btn btn-block'> Submit </button>
             </div>
         </form>
+        <p>Already got an account? <Link to='/login' style={{textDecoration:'underline'}}>Login</Link></p>
     </section>
     </>
   )
